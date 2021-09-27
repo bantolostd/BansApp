@@ -13,18 +13,17 @@
             android:id="@+id/btnBack"
             android:layout_centerVertical="true"
             android:src="@drawable/ic_back"/>
+
         <TextView
+            android:id="@+id/action_bar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:layout_marginStart="16dp"
-            android:layout_centerVertical="true"
-            android:id="@+id/action_bar"
-            android:text="Tambah Kontak"
-            android:layout_centerHorizontal="true"
             android:fontFamily="@font/poppins_semibold"
+            android:text="Action Bar"
             android:textColor="@color/white"
-            android:textSize="20sp"
-            />
+            android:textSize="20sp" />
     </RelativeLayout>
 
 

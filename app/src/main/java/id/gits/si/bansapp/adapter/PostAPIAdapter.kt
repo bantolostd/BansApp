@@ -11,11 +11,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import id.gits.si.bansapp.R
-import id.gits.si.bansapp.activity.UpdateUserActivity
-import id.gits.si.bansapp.model.DataItem
+import id.gits.si.bansapp.activity.UpdatePostActivity
+import id.gits.si.bansapp.model.DataItems
 
-class PostAPIAdapter(val results : ArrayList<DataItem>) : RecyclerView.Adapter<PostAPIAdapter.ViewHolder>() {
-    fun setData(data : List<DataItem>) {
+class PostAPIAdapter(val results : ArrayList<DataItems>) : RecyclerView.Adapter<PostAPIAdapter.ViewHolder>() {
+    fun setData(data : List<DataItems>) {
         results.clear()
         results.addAll(data)
         notifyDataSetChanged()
@@ -27,20 +27,19 @@ class PostAPIAdapter(val results : ArrayList<DataItem>) : RecyclerView.Adapter<P
 
     override fun onBindViewHolder(holder: PostAPIAdapter.ViewHolder, position: Int) {
         val data = results[position]
-        //val URL_FOTO = ""
-        //Glide.with(holder.itemView).load(URL_FOTO+data.nama).apply(RequestOptions().override(320,320)).into(holder.foto)
-        holder.postTitle.text = data.nama
-        holder.postBody.text = data.noHp
-        holder.penggunaUsername.text = data.instagram
-        holder.postTime.text = data.instagram
+        val URL_FOTO = ""
+        Glide.with(holder.itemView).load(URL_FOTO).apply(RequestOptions().override(320,320)).into(holder.postImage)
+        holder.postTitle.text = data.postTitle
+        holder.postBody.text = data.postBody
+        holder.postTime.text = data.postTime
         holder.cvPost.setOnClickListener {
-            val intent = Intent(holder.itemView.context, UpdateUserActivity::class.java)
-            intent.putExtra("id_user", data.id)
-            intent.putExtra("nama", data.nama)
-            intent.putExtra("email", data.email)
-            intent.putExtra("no_hp", data.noHp)
-            intent.putExtra("alamat", data.alamat)
-            intent.putExtra("instagram", data.instagram)
+            val intent = Intent(holder.itemView.context, UpdatePostActivity::class.java)
+            intent.putExtra("post_id", data.postId)
+            intent.putExtra("post_title", data.postTitle)
+            intent.putExtra("post_body", data.postBody)
+            intent.putExtra("post_image", data.postImage)
+            intent.putExtra("post_time", data.postTime)
+            intent.putExtra("post_credit", data.postCredit)
             holder.cvPost.context.startActivity(intent)
         }
     }
@@ -55,7 +54,7 @@ class PostAPIAdapter(val results : ArrayList<DataItem>) : RecyclerView.Adapter<P
         val penggunaUsername : TextView = itemView.findViewById(R.id.tv_pengguna_username)
         val postTime : TextView = itemView.findViewById(R.id.tv_post_time)
         val postImage : ImageView = itemView.findViewById(R.id.iv_post_image)
-        val cvPost : CardView = itemView.findViewById(R.id.cv_user)
+        val cvPost : CardView = itemView.findViewById(R.id.cv_post)
 
     }
 }

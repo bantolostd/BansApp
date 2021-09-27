@@ -8,7 +8,7 @@ import kotlinx.android.parcel.Parcelize
 data class PostResponse(
 
 	@field:SerializedName("data")
-	val data: List<DataItem?>? = null,
+	val data: List<DataItems?>? = null,
 
 	@field:SerializedName("message")
 	val message: String? = null,
@@ -18,7 +18,7 @@ data class PostResponse(
 ) : Parcelable
 
 @Parcelize
-data class DataPost(
+data class DataItems(
 
 	@field:SerializedName("post_title")
 	val postTitle: String? = null,

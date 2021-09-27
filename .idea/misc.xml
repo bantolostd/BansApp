@@ -6,13 +6,17 @@
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/drawable/ic_add.xml" value="0.2755208333333333" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/drawable/ic_back.xml" value="0.14947916666666666" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/font/poppins.xml" value="0.28958333333333336" />
+        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/activity_insert_post.xml" value="0.2" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/activity_insert_user.xml" value="0.259375" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/activity_main.xml" value="0.259375" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.13385416666666666" />
+        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/activity_update_post.xml" value="0.264" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/activity_update_user.xml" value="0.259375" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/item_card_post.xml" value="0.536" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/item_card_user.xml" value="0.259375" />
-        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/toolbar.xml" value="0.6" />
+        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/toolbar.xml" value="0.4" />
+        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/toolbar_detail.xml" value="0.13385416666666666" />
+        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/toolbar_insert.xml" value="0.264" />
       </map>
     </option>
   </component>

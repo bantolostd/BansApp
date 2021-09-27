@@ -16,10 +16,10 @@
             android:name=".activity.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".activity.UpdateUserActivity"
+            android:name=".activity.UpdatePostActivity"
             android:exported="true" />
         <activity
-            android:name=".activity.InsertUserActivity"
+            android:name=".activity.InsertPostActivity"
             android:exported="true" />
         <activity
             android:name=".activity.SplashScreenActivity"

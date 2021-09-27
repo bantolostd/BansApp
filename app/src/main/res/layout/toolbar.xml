@@ -20,11 +20,10 @@
             android:id="@+id/action_bar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
             android:layout_marginStart="16dp"
-            android:layout_toEndOf="@+id/left_icon"
-            android:fontFamily="@font/poppins"
-            android:text="Timeline"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Action Bar"
             android:textColor="@color/white"
             android:textSize="20sp" />
 

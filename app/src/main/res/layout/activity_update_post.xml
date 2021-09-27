@@ -5,92 +5,65 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".InsertUserActivity">
-    <include layout="@layout/toolbar_insert"></include>
-
+    tools:context=".activity.UpdatePostActivity">
+    <include layout="@layout/toolbar_detail"></include>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/detailUser"
+        android:id="@+id/detailPost"
         android:layout_margin="16dp">
 
         <EditText
-            android:id="@+id/et_nama"
+            android:id="@+id/et_post_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:fontFamily="@font/poppins"
+            android:hint="Judul"
             android:inputType="textPersonName"
-            android:hint="Nama"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/et_email"
+            android:id="@+id/et_post_body"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:layout_marginTop="8dp"
-            android:fontFamily="@font/poppins"
             android:ems="10"
-            android:inputType="textEmailAddress"
-            android:hint="Email"
+            android:fontFamily="@font/poppins"
+            android:hint="......."
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_nama" />
+            app:layout_constraintTop_toBottomOf="@+id/et_post_title" />
 
         <EditText
-            android:id="@+id/et_no_hp"
+            android:id="@+id/et_post_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:fontFamily="@font/poppins"
             android:ems="10"
-            android:inputType="phone"
+            android:fontFamily="@font/poppins"
+            android:hint="URL Gambar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_email"
-            android:hint="Nomor HP"/>
+            app:layout_constraintTop_toBottomOf="@+id/et_post_body" />
 
-        <EditText
-            android:id="@+id/et_alamat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:fontFamily="@font/poppins"
-            android:hint="Alamat"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_no_hp" />
-
-        <EditText
-            android:id="@+id/et_instagram"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Username Instagram"
-            android:fontFamily="@font/poppins"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_alamat" />
 
         <Button
             android:id="@+id/btn_insert"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:backgroundTint="@color/violet"
             android:fontFamily="@font/poppins_semibold"
             android:text="Tambahkan data!"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_instagram" />
+            app:layout_constraintTop_toBottomOf="@+id/et_post_image" />
 
         <Button
             android:id="@+id/btn_delete"
@@ -103,9 +76,9 @@
             android:fontFamily="@font/poppins_semibold"
             android:text="Hapus data!"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.466"
             app:layout_constraintStart_toEndOf="@+id/btn_insert"
-            app:layout_constraintTop_toBottomOf="@+id/et_instagram" />
+            app:layout_constraintTop_toBottomOf="@+id/et_post_image" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

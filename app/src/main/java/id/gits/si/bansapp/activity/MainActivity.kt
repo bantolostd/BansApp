@@ -7,12 +7,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.gits.si.bansapp.R
-import id.gits.si.bansapp.adapter.UserAPIAdapter
-import id.gits.si.bansapp.model.DataItem
-import id.gits.si.bansapp.model.UserResponse
-import id.gits.si.bansapp.rest.RetrofitClient
+import id.gits.si.bansapp.adapter.PostAPIAdapter
+import id.gits.si.bansapp.model.DataItems
+import id.gits.si.bansapp.model.PostResponse
+import id.gits.si.bansapp.rest.PostNetworkConfig
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.item_card_user.*
+import kotlinx.android.synthetic.main.toolbar.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,31 +22,34 @@ class MainActivity : AppCompatActivity() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        getDataUser()
+        getPosts()
+
+        action_bar.setText("Beranda")
 
         btnTambah.setOnClickListener {
-            val intent = Intent(this@MainActivity, InsertUserActivity::class.java)
+            val intent = Intent(this@MainActivity, InsertPostActivity::class.java)
             startActivity(intent)
         }
 
     }
-    private fun getDataUser() {
-        RetrofitClient().getService().getUser()
-            .enqueue(object : Callback<UserResponse> {
+    private fun getPosts() {
+        PostNetworkConfig().getService().getPost()
+            .enqueue(object : Callback<PostResponse> {
                 override fun onResponse(
-                    call: Call<UserResponse>?,
-                    response: Response<UserResponse>?
+                    call: Call<PostResponse>?,
+                    response: Response<PostResponse>?
                 ) {
-                    rv_user.layoutManager = LinearLayoutManager(this@MainActivity)
-                    rv_user.adapter = UserAPIAdapter(response?.body()?.data as ArrayList<DataItem>)
+                    rv_post.layoutManager = LinearLayoutManager(this@MainActivity)
+                    rv_post.adapter = PostAPIAdapter(response?.body()?.data as ArrayList<DataItems>)
 
                 }
 
-                override fun onFailure(call: Call<UserResponse>?, t: Throwable?) {
+                override fun onFailure(call: Call<PostResponse>?, t: Throwable?) {
                     Toast.makeText(this@MainActivity, "Reponse Gagal : ${t}", Toast.LENGTH_LONG).show()
                 }
 
             })
     }
+
 
 }
