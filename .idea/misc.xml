@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/drawable/ic_add.xml" value="0.2755208333333333" />
+        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/drawable/ic_back.xml" value="0.14947916666666666" />
+        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/font/poppins.xml" value="0.28958333333333336" />
+        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/activity_insert_user.xml" value="0.259375" />
+        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/activity_main.xml" value="0.259375" />
+        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.13385416666666666" />
+        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/activity_update_user.xml" value="0.259375" />
+        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/item_card_post.xml" value="0.536" />
+        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/item_card_user.xml" value="0.259375" />
+        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/toolbar.xml" value="0.6" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
