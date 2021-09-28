@@ -8,14 +8,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import id.gits.si.bansapp.R
 import id.gits.si.bansapp.activity.DetailPostActivity
-import id.gits.si.bansapp.activity.MainActivity
-import id.gits.si.bansapp.activity.UpdatePostActivity
 import id.gits.si.bansapp.model.DataItems
-import id.gits.si.bansapp.support.konversiTanggal
+import id.gits.si.bansapp.support.formatTimeAgo
 
 class PostAPIAdapter(val results : ArrayList<DataItems>) : RecyclerView.Adapter<PostAPIAdapter.ViewHolder>() {
     fun setData(data : List<DataItems>) {
@@ -32,13 +28,18 @@ class PostAPIAdapter(val results : ArrayList<DataItems>) : RecyclerView.Adapter<
         val data = results[position]
 //        val URL_FOTO = ""
 //        Glide.with(holder.itemView).load(URL_FOTO).apply(RequestOptions().override(320,320)).into(holder.postImage)
-        holder.postTitle.text = data.postTitle
-        if(data.postBody.toString().length > 99) {
-            holder.postBody.text = data.postBody?.take(100)+"..."
+        //holder.postTitle.text = data.postTitle
+        /*if(data.postBody.toString().length > 99) {
+            holder.postBody.text = data.postBody?.take(50)+"..."
         } else {
             holder.postBody.text = data.postBody
+        }*/
+        if(data.postTitle.toString().length > 40) {
+            holder.postTitle.text = data.postTitle?.take(40)+"..."
+        } else {
+            holder.postTitle.text = data.postTitle
         }
-        holder.postTime.text = konversiTanggal(data.postTime.toString())
+        holder.postTime.text = formatTimeAgo(data.postTime.toString())
 //        holder.penggunaUsername.setText(MainActivity().getUsernamePengguna(data.postCredit.toInt()))
         holder.cvPost.setOnClickListener {
             val intent = Intent(holder.itemView.context, DetailPostActivity::class.java)
@@ -58,7 +59,7 @@ class PostAPIAdapter(val results : ArrayList<DataItems>) : RecyclerView.Adapter<
 
     inner class ViewHolder (itemView : View): RecyclerView.ViewHolder(itemView) {
         val postTitle : TextView = itemView.findViewById(R.id.tv_post_title)
-        val postBody : TextView = itemView.findViewById(R.id.tv_post_body)
+        //val postBody : TextView = itemView.findViewById(R.id.tv_post_body)
         val postTime : TextView = itemView.findViewById(R.id.tv_post_time)
         val postImage : ImageView = itemView.findViewById(R.id.iv_post_image)
         val cvPost : CardView = itemView.findViewById(R.id.cv_post)

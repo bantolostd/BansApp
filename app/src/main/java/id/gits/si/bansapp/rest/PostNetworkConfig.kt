@@ -9,7 +9,7 @@ import com.google.gson.GsonBuilder
 import com.google.gson.Gson
 
 class PostNetworkConfig {
-    val BASE_URL = "http://192.168.100.125/Tugas18/Post_API.php/"
+    val BASE_URL = "http://192.168.100.125/gits_api/post_api.php/"
 
     fun getInterceptor() : OkHttpClient {
         val logging = HttpLoggingInterceptor()
