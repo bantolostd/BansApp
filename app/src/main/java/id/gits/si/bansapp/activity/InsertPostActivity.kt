@@ -1,9 +1,11 @@
 package id.gits.si.bansapp.activity
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import id.gits.si.bansapp.R
 import id.gits.si.bansapp.model.PostResponse
 import id.gits.si.bansapp.rest.PostNetworkConfig
@@ -19,8 +21,10 @@ import kotlinx.android.synthetic.main.toolbar_detail.action_bar
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.time.LocalDateTime
 
 class InsertPostActivity : AppCompatActivity() {
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -38,7 +42,7 @@ class InsertPostActivity : AppCompatActivity() {
             PostNetworkConfig().getService().insertPost(
                 et_post_title.text.toString().trim(),
                 et_post_body.text.toString().trim(),
-                et_post_image.text.toString().trim(),"NOW()","1"
+                et_post_image.text.toString().trim(),getWaktuSekarang().toString(),"1"
             ).enqueue(object: Callback<PostResponse> {
                 override fun onResponse(
                     call: Call<PostResponse>?,
@@ -62,6 +66,12 @@ class InsertPostActivity : AppCompatActivity() {
             })
         }
 
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun getWaktuSekarang(): LocalDateTime? {
+        val sekarang = LocalDateTime.now()
+        return sekarang
     }
 
     fun goBackHome() {

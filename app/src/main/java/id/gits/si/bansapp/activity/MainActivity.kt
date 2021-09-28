@@ -9,9 +9,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import id.gits.si.bansapp.R
 import id.gits.si.bansapp.adapter.PostAPIAdapter
 import id.gits.si.bansapp.model.DataItems
+import id.gits.si.bansapp.model.DataPengguna
+import id.gits.si.bansapp.model.PenggunaResponse
 import id.gits.si.bansapp.model.PostResponse
+import id.gits.si.bansapp.rest.PenggunaNetworkConfig
 import id.gits.si.bansapp.rest.PostNetworkConfig
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.item_card_post.*
 import kotlinx.android.synthetic.main.toolbar.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,7 +26,9 @@ class MainActivity : AppCompatActivity() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        println("ok")
         getPosts()
+        getUsernamePengguna(1)
 
         action_bar.setText("Beranda")
 
@@ -32,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+    
     private fun getPosts() {
         PostNetworkConfig().getService().getPost()
             .enqueue(object : Callback<PostResponse> {
@@ -45,6 +52,25 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<PostResponse>?, t: Throwable?) {
+                    Toast.makeText(this@MainActivity, "Reponse Gagal : ${t}", Toast.LENGTH_LONG).show()
+                }
+
+            })
+    }
+
+    fun getUsernamePengguna(pengguna_id : Int) {
+        PenggunaNetworkConfig().getService().getPenggunaID(pengguna_id)
+            .enqueue(object : Callback<PenggunaResponse> {
+                override fun onResponse(
+                    call: Call<PenggunaResponse>?,
+                    response: Response<PenggunaResponse>?
+                ) {
+                    //val data = response?.body()?.data as ArrayList<DataPengguna>
+                    //tv_pengguna_username.setText(response?.body()?.message)
+
+                }
+
+                override fun onFailure(call: Call<PenggunaResponse>?, t: Throwable?) {
                     Toast.makeText(this@MainActivity, "Reponse Gagal : ${t}", Toast.LENGTH_LONG).show()
                 }
 

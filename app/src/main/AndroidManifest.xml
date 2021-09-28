@@ -13,6 +13,10 @@
         android:theme="@style/Theme.BansApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activity.DetailPostActivity"
+            android:theme="@style/Theme.BansApp.TransparentStatusBar"
+            android:exported="true" />
+        <activity
             android:name=".activity.MainActivity"
             android:exported="true" />
         <activity
