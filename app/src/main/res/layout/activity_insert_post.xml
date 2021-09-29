@@ -9,59 +9,84 @@
     <include layout="@layout/toolbar_detail"></include>
 
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="16dp">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_post_title"
+            style="@style/TextInputPost"
+            android:background="@drawable/et_post"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:fontFamily="@font/poppins"
-            android:hint="Judul Post"
+            android:hint="Judul post"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_post_body"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="250dp"
             android:layout_marginTop="8dp"
-            android:ems="10"
+            android:background="@drawable/et_post"
             android:fontFamily="@font/poppins"
-            android:hint="......."
+            android:gravity="top"
+            android:hint="Apa yang kamu pikirkan?"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_post_title" />
 
-        <EditText
-            android:id="@+id/et_post_image"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:fontFamily="@font/poppins"
-            android:hint="URL Gambar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_post_body" />
-
         <Button
-            android:id="@+id/btn_insert"
+            android:id="@+id/btn_insert_image"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:backgroundTint="@color/violet"
             android:fontFamily="@font/poppins_semibold"
             android:text="Tambahkan data!"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_post_image" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_image_upload" />
+
+        <Button
+            android:id="@+id/btn_insert"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/violet"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Tambahkan data!"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_image_upload" />
+
+        <Button
+            android:id="@+id/btn_image_upload"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="PILIH GAMBAR"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_post_body" />
+
+        <ImageView
+            android:id="@+id/iv_post_image_preview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_insert_image"
+            tools:srcCompat="@tools:sample/avatars" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

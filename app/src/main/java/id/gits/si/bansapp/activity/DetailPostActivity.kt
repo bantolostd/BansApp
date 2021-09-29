@@ -3,6 +3,8 @@ package id.gits.si.bansapp.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.net.toUri
+import com.bumptech.glide.Glide
 import id.gits.si.bansapp.R
 import id.gits.si.bansapp.support.konversiTanggal
 import id.gits.si.bansapp.support.lightStatusBar
@@ -25,10 +27,12 @@ class DetailPostActivity : AppCompatActivity() {
         val post_time = intent.getStringExtra("post_time")
         val post_credit = intent.getStringExtra("post_credit")
 
+        // set data ke elemen
         tv_detail_post_title.setText(post_title)
         tv_detail_post_body.setText(post_body)
         tv_detail_post_time.setText(konversiTanggal(post_time.toString()))
-        //et_post_image.setText(post_image)
+        val URL_FOTO = "http://192.168.100.125/gits_api/images/"
+        Glide.with(this).load(URL_FOTO+post_image).centerCrop().into(iv_detail_post_image)
 
         btn_edit_detail_post.setOnClickListener {
             val intent = Intent(this, UpdatePostActivity::class.java)

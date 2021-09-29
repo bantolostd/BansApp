@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextInputPost" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">#000000</item>
+        <item name="boxStrokeWidth">20dp</item>
+    </style>
+    <style name="RoundedSquare10">
+        <item name="cornerSize">10dp</item>
+    </style>
+</resources>

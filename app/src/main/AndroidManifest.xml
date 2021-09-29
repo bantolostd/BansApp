@@ -3,6 +3,9 @@
     package="id.gits.si.bansapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
 
     <application
         android:allowBackup="true"
@@ -11,11 +14,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BansApp"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        android:requestLegacyExternalStorage="true">
         <activity
             android:name=".activity.DetailPostActivity"
-            android:theme="@style/Theme.BansApp.TransparentStatusBar"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.BansApp.TransparentStatusBar" />
         <activity
             android:name=".activity.MainActivity"
             android:exported="true" />
