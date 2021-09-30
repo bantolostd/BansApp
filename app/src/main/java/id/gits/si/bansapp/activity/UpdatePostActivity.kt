@@ -34,8 +34,8 @@ class UpdatePostActivity : AppCompatActivity() {
 //        val post_time = intent.getStringExtra("post_time")
 //        val post_credit = intent.getStringExtra("post_credit")
 
-        et_post_title.setText(post_title)
-        et_post_body.setText(post_body)
+        et_pengguna_nama.setText(post_title)
+        et_pengguna_email.setText(post_body)
         et_post_image.setText(post_image)
 
         btnBack.setOnClickListener {
@@ -97,8 +97,8 @@ class UpdatePostActivity : AppCompatActivity() {
 
     fun insertPost(post_id : String, post_image : String) {
         PostNetworkConfig().getService().updatePost(
-            et_post_title.text.toString().trim(),
-            et_post_body.text.toString().trim(),
+            et_pengguna_nama.text.toString().trim(),
+            et_pengguna_email.text.toString().trim(),
             post_image,
             post_id
         ).enqueue(object: Callback<PostResponse> {

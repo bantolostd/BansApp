@@ -7,57 +7,62 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.gits.si.bansapp.R
-import id.gits.si.bansapp.adapter.PostAPIAdapter
-import id.gits.si.bansapp.model.DataItems
+import id.gits.si.bansapp.adapter.PenggunaAPIAdapter
+import id.gits.si.bansapp.model.DataPengguna
 import id.gits.si.bansapp.model.PenggunaResponse
-import id.gits.si.bansapp.model.PostResponse
 import id.gits.si.bansapp.rest.PenggunaNetworkConfig
-import id.gits.si.bansapp.rest.PostNetworkConfig
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.btn_add
+import kotlinx.android.synthetic.main.activity_pengguna_main.*
 import kotlinx.android.synthetic.main.item_card_post.*
 import kotlinx.android.synthetic.main.toolbar.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainActivity : AppCompatActivity() {
+class PenggunaMainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_pengguna_main)
         println("ok")
-        getPosts()
-        getUsernamePengguna(1)
+        getPengguna()
+        //getUsernamePengguna(1)
 
-        action_bar.setText("Beranda")
+        action_bar.setText("Daftar Pengguna")
+        left_icon.setImageDrawable(getResources().getDrawable(R.drawable.ic_article))
+        btn_add.setImageDrawable(getResources().getDrawable(R.drawable.ic_person_add))
+//        Glide.with(this)
+//            .load(R.drawable.ic_article)
+//            .into(left_icon)
 
         left_icon.setOnClickListener {
-            val intent = Intent(this@MainActivity, PenggunaMainActivity::class.java)
+            val intent = Intent(this@PenggunaMainActivity, MainActivity::class.java)
             startActivity(intent)
         }
 
         btn_add.setOnClickListener {
-            val intent = Intent(this@MainActivity, InsertPostActivity::class.java)
+            val intent = Intent(this@PenggunaMainActivity, InsertPenggunaActivity::class.java)
             startActivity(intent)
         }
 
 
     }
     
-    private fun getPosts() {
-        PostNetworkConfig().getService().getPost()
-            .enqueue(object : Callback<PostResponse> {
+    private fun getPengguna() {
+        PenggunaNetworkConfig().getService().getPengguna()
+            .enqueue(object : Callback<PenggunaResponse> {
                 override fun onResponse(
-                    call: Call<PostResponse>?,
-                    response: Response<PostResponse>?
+                    call: Call<PenggunaResponse>?,
+                    response: Response<PenggunaResponse>?
                 ) {
-                    rv_post.layoutManager = LinearLayoutManager(this@MainActivity)
-                    rv_post.adapter = PostAPIAdapter(response?.body()?.data as ArrayList<DataItems>)
+                    rv_pengguna.layoutManager = LinearLayoutManager(this@PenggunaMainActivity)
+                    rv_pengguna.adapter = PenggunaAPIAdapter(response?.body()?.data as ArrayList<DataPengguna>)
 
                 }
 
-                override fun onFailure(call: Call<PostResponse>?, t: Throwable?) {
-                    Toast.makeText(this@MainActivity, "Reponse Gagal : ${t}", Toast.LENGTH_LONG).show()
+                override fun onFailure(call: Call<PenggunaResponse>?, t: Throwable?) {
+                    Toast.makeText(this@PenggunaMainActivity, "Reponse Gagal : ${t}", Toast.LENGTH_LONG).show()
                 }
 
             })
@@ -76,7 +81,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<PenggunaResponse>?, t: Throwable?) {
-                    Toast.makeText(this@MainActivity, "Reponse Gagal : ${t}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@PenggunaMainActivity, "Reponse Gagal : ${t}", Toast.LENGTH_LONG).show()
                 }
 
             })

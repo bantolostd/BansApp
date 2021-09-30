@@ -23,7 +23,7 @@
         app:srcCompat="@drawable/ic_post_add" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_post"
+        android:id="@+id/rv_pengguna"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="64dp"

@@ -21,10 +21,16 @@
             android:exported="true"
             android:theme="@style/Theme.BansApp.TransparentStatusBar" />
         <activity
+            android:name=".activity.PenggunaMainActivity"
+            android:exported="true" />
+        <activity
             android:name=".activity.MainActivity"
             android:exported="true" />
         <activity
             android:name=".activity.UpdatePostActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.InsertPenggunaActivity"
             android:exported="true" />
         <activity
             android:name=".activity.InsertPostActivity"

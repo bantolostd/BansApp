@@ -17,11 +17,11 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_pengguna_nama"
             style="@style/TextInputPost"
-            android:background="@drawable/et_post"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/et_post"
             android:fontFamily="@font/poppins"
-            android:hint="Judul post"
+            android:hint="Nama"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,15 +31,45 @@
             android:id="@+id/et_pengguna_email"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@drawable/et_post"
             android:fontFamily="@font/poppins"
             android:gravity="top"
-            android:hint="Apa yang kamu pikirkan?"
+            android:hint="E-Mail"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_pengguna_nama" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_pengguna_username"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/et_post"
+            android:fontFamily="@font/poppins"
+            android:gravity="top"
+            android:hint="Username"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_pengguna_email" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_pengguna_password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/et_post"
+            android:fontFamily="@font/poppins"
+            android:gravity="top"
+            android:hint="Password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_pengguna_username" />
 
         <Button
             android:id="@+id/btn_insert_image"
@@ -72,10 +102,11 @@
             android:layout_marginTop="8dp"
             android:clickable="true"
             android:fontFamily="@font/poppins_semibold"
-            android:text="PILIH GAMBAR"
+            android:text="PILIH FOTO"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_pengguna_email" />
+            app:layout_constraintTop_toBottomOf="@+id/et_pengguna_password" />
 
         <ImageView
             android:id="@+id/iv_post_image_preview"
