@@ -19,8 +19,8 @@ import id.gits.si.bansapp.model.PenggunaResponse
 import id.gits.si.bansapp.rest.UploadImageNetworkConfig
 import kotlinx.android.synthetic.main.activity_insert_post.*
 import kotlinx.android.synthetic.main.activity_insert_post.btn_insert_image
-import kotlinx.android.synthetic.main.activity_insert_post.et_pengguna_email
-import kotlinx.android.synthetic.main.activity_insert_post.et_pengguna_nama
+import kotlinx.android.synthetic.main.activity_insert_post.et_post_body
+import kotlinx.android.synthetic.main.activity_insert_post.et_post_title
 import kotlinx.android.synthetic.main.toolbar.*
 import kotlinx.android.synthetic.main.toolbar_detail.*
 import kotlinx.android.synthetic.main.toolbar_detail.action_bar
@@ -55,8 +55,6 @@ class InsertPenggunaActivity : AppCompatActivity() {
 
         btn_image_upload.setOnClickListener {
             pickImage()
-            btn_insert.setVisibility(View.GONE)
-            btn_insert_image.setVisibility(View.VISIBLE)
         }
 
         btn_insert.setOnClickListener {
@@ -87,6 +85,7 @@ class InsertPenggunaActivity : AppCompatActivity() {
                 REQUEST_CODE_IMAGE_PICKER ->{
                     selectedImage = data?.data
                     iv_post_image_preview.setImageURI(selectedImage)
+                    btn_insert.setVisibility(View.GONE)
                     btn_insert_image.setVisibility(View.VISIBLE)
 
                     btn_insert_image.setOnClickListener {
@@ -154,8 +153,8 @@ class InsertPenggunaActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun insertPengguna(post_image : String = "user_default.jpg") {
         PenggunaNetworkConfig().getService().insertPengguna(
-            et_pengguna_nama.text.toString().trim(),
-            et_pengguna_email.text.toString().trim(),
+            et_post_title.text.toString().trim(),
+            et_post_body.text.toString().trim(),
             et_pengguna_username.text.toString().trim(),
             et_pengguna_password.text.toString().trim(),
             post_image

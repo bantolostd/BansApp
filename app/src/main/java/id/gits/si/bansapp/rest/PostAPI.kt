@@ -1,5 +1,6 @@
 package id.gits.si.bansapp.rest
 
+import id.gits.si.bansapp.model.DetailPostResponse
 import id.gits.si.bansapp.model.PostResponse
 import retrofit2.Call
 import retrofit2.http.*
@@ -18,8 +19,8 @@ interface PostAPI {
     ): Call<PostResponse>
     @GET("?function=get_post_id")
     fun getPostID(
-        @Field("post_id") post_id : Int
-    ): Call<PostResponse>
+        @Query("post_id") post_id : Int
+    ): Call<DetailPostResponse>
     @FormUrlEncoded
     @POST("?function=update_post")
     fun updatePost(

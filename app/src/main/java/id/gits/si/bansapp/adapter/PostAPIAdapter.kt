@@ -46,11 +46,6 @@ class PostAPIAdapter(val results : ArrayList<DataItems>) : RecyclerView.Adapter<
         holder.cvPost.setOnClickListener {
             val intent = Intent(holder.itemView.context, DetailPostActivity::class.java)
             intent.putExtra("post_id", data.postId)
-            intent.putExtra("post_title", data.postTitle)
-            intent.putExtra("post_body", data.postBody)
-            intent.putExtra("post_image", data.postImage)
-            intent.putExtra("post_time", data.postTime)
-            intent.putExtra("post_credit", data.postCredit)
             holder.cvPost.context.startActivity(intent)
         }
     }

@@ -20,8 +20,8 @@ import id.gits.si.bansapp.rest.PostNetworkConfig
 import id.gits.si.bansapp.rest.UploadImageNetworkConfig
 import kotlinx.android.synthetic.main.activity_insert_post.*
 import kotlinx.android.synthetic.main.activity_insert_post.btn_insert_image
-import kotlinx.android.synthetic.main.activity_insert_post.et_pengguna_email
-import kotlinx.android.synthetic.main.activity_insert_post.et_pengguna_nama
+import kotlinx.android.synthetic.main.activity_insert_post.et_post_body
+import kotlinx.android.synthetic.main.activity_insert_post.et_post_title
 import kotlinx.android.synthetic.main.toolbar.*
 import kotlinx.android.synthetic.main.toolbar_detail.*
 import kotlinx.android.synthetic.main.toolbar_detail.action_bar
@@ -151,8 +151,8 @@ class InsertPostActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun insertPost(post_image : String = "default.jpg") {
         PostNetworkConfig().getService().insertPost(
-            et_pengguna_nama.text.toString().trim(),
-            et_pengguna_email.text.toString().trim(),
+            et_post_title.text.toString().trim(),
+            et_post_body.text.toString().trim(),
             post_image,getWaktuSekarang().toString(),"1"
         ).enqueue(object: Callback<PostResponse> {
             override fun onResponse(
