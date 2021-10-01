@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.database.Cursor
 import android.net.Uri
 import android.os.Build
@@ -21,6 +22,7 @@ import id.gits.si.bansapp.model.PostResponse
 import id.gits.si.bansapp.model.UploadImageResponse
 import id.gits.si.bansapp.rest.PostNetworkConfig
 import id.gits.si.bansapp.rest.UploadImageNetworkConfig
+import id.gits.si.bansapp.support.cekLogin
 import kotlinx.android.synthetic.main.activity_detail_post.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_update_post.*
@@ -42,10 +44,17 @@ import retrofit2.Response
 import java.io.File
 
 class UpdatePostActivity : AppCompatActivity() {
+    lateinit var sharedPreferences: SharedPreferences
     private var selectedImage: Uri? = null
     private var temp_post_image = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // cek login
+        sharedPreferences = getSharedPreferences("DATA_LOGIN", Context.MODE_PRIVATE)
+        val pengguna_id = sharedPreferences.getString("pengguna_id", "").toString()
+        cekLogin(pengguna_id, this)
+
         setContentView(R.layout.activity_update_post)
 
         action_bar.setText("Update Post")

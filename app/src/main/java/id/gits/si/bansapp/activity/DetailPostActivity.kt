@@ -1,6 +1,8 @@
 package id.gits.si.bansapp.activity
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -8,6 +10,7 @@ import com.bumptech.glide.Glide
 import id.gits.si.bansapp.R
 import id.gits.si.bansapp.model.DetailPostResponse
 import id.gits.si.bansapp.rest.PostNetworkConfig
+import id.gits.si.bansapp.support.cekLogin
 import id.gits.si.bansapp.support.konversiTanggal
 import id.gits.si.bansapp.support.lightStatusBar
 import id.gits.si.bansapp.support.setFullScreen
@@ -19,9 +22,16 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class DetailPostActivity : AppCompatActivity() {
+    lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_post)
+
+        // cek login
+        sharedPreferences = getSharedPreferences("DATA_LOGIN", Context.MODE_PRIVATE)
+        val pengguna_id = sharedPreferences.getString("pengguna_id", "").toString()
+        cekLogin(pengguna_id, this)
+
         setFullScreen(window)
         lightStatusBar(window, false)
 

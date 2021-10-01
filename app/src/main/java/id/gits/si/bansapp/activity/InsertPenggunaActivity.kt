@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.database.Cursor
 import android.net.Uri
 import android.os.Build
@@ -33,6 +34,7 @@ import okhttp3.MultipartBody.Part.Companion.createFormData
 import java.io.File
 import id.gits.si.bansapp.model.UploadImageResponse
 import id.gits.si.bansapp.rest.PenggunaNetworkConfig
+import id.gits.si.bansapp.support.cekLogin
 import kotlinx.android.synthetic.main.activity_insert_pengguna.*
 import kotlinx.android.synthetic.main.activity_insert_post.btn_image_upload
 import kotlinx.android.synthetic.main.activity_insert_post.btn_insert
@@ -42,10 +44,16 @@ import okhttp3.RequestBody
 
 
 class InsertPenggunaActivity : AppCompatActivity() {
+    lateinit var sharedPreferences: SharedPreferences
     private var selectedImage: Uri? = null
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // cek login
+        sharedPreferences = getSharedPreferences("DATA_LOGIN", Context.MODE_PRIVATE)
+        val pengguna_id = sharedPreferences.getString("pengguna_id", "").toString()
+        cekLogin(pengguna_id, this@InsertPenggunaActivity)
 
         setContentView(R.layout.activity_insert_pengguna)
 

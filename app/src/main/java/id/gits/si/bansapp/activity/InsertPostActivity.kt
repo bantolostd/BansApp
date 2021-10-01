@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.database.Cursor
 import android.net.Uri
 import android.os.Build
@@ -33,17 +34,24 @@ import java.time.LocalDateTime
 import okhttp3.MultipartBody.Part.Companion.createFormData
 import java.io.File
 import id.gits.si.bansapp.model.UploadImageResponse
+import id.gits.si.bansapp.support.cekLogin
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 
 
 class InsertPostActivity : AppCompatActivity() {
+    lateinit var sharedPreferences: SharedPreferences
     private var selectedImage: Uri? = null
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_insert_post)
+
+        // cek login
+        sharedPreferences = getSharedPreferences("DATA_LOGIN", Context.MODE_PRIVATE)
+        val pengguna_id = sharedPreferences.getString("pengguna_id", "").toString()
+        cekLogin(pengguna_id, this@InsertPostActivity)
 
         action_bar.setText("Tambah Post")
         btn_insert_image.setText("Tambah Post!")

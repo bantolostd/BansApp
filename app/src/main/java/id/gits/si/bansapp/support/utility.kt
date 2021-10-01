@@ -1,14 +1,19 @@
 package id.gits.si.bansapp.support
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.view.Window
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import java.text.SimpleDateFormat
 import java.util.*
 import android.text.format.DateUtils
+import androidx.core.content.ContextCompat.startActivity
+import id.gits.si.bansapp.activity.MainActivity
+import id.gits.si.bansapp.activity.WelcomeActivity
 import java.lang.Exception
 import java.util.concurrent.TimeUnit
-
 
 fun setFullScreen(window : Window) {
     WindowCompat.setDecorFitsSystemWindows(window, false)
@@ -17,6 +22,25 @@ fun setFullScreen(window : Window) {
 fun lightStatusBar(window : Window, isLight : Boolean = true) {
     val wic = WindowInsetsControllerCompat(window, window.decorView)
     wic.isAppearanceLightStatusBars = isLight
+}
+
+fun cekLoginAwal(pengguna_id : String, context: Context) {
+    if(pengguna_id !== "") {
+        val intent = Intent(context, MainActivity::class.java)
+        context.startActivity(intent)
+    }
+}
+
+fun cekLogin(pengguna_id : String, context: Context) {
+    if(pengguna_id === "") {
+        val intent = Intent(context, WelcomeActivity::class.java)
+        context.startActivity(intent)
+    }
+}
+
+fun goBackHome(context: Context) {
+    val intent = Intent(context, MainActivity::class.java)
+    context.startActivity(intent)
 }
 
 fun konversiTanggal (tanggal: String): String{

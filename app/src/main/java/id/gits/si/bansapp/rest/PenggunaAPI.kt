@@ -1,5 +1,6 @@
 package id.gits.si.bansapp.rest
 
+import id.gits.si.bansapp.model.LoginPenggunaResponse
 import id.gits.si.bansapp.model.PenggunaResponse
 import id.gits.si.bansapp.model.PostResponse
 import retrofit2.Call
@@ -35,6 +36,12 @@ interface PenggunaAPI {
     fun deletePengguna(
         @Query("pengguna_id") pengguna_id : String
     ): Call<PenggunaResponse>
+    @FormUrlEncoded
+    @POST("?function=login")
+    fun loginPengguna(
+        @Field("pengguna_username") pengguna_username : String,
+        @Field("pengguna_password") pengguna_password : String
+    ): Call<LoginPenggunaResponse>
 
 
 }

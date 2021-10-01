@@ -1,6 +1,8 @@
 package id.gits.si.bansapp.activity
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -8,11 +10,12 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.gits.si.bansapp.R
 import id.gits.si.bansapp.adapter.PostAPIAdapter
+import id.gits.si.bansapp.model.Data
 import id.gits.si.bansapp.model.DataItems
-import id.gits.si.bansapp.model.PenggunaResponse
 import id.gits.si.bansapp.model.PostResponse
-import id.gits.si.bansapp.rest.PenggunaNetworkConfig
 import id.gits.si.bansapp.rest.PostNetworkConfig
+import id.gits.si.bansapp.support.cekLogin
+import id.gits.si.bansapp.support.goBackHome
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_card_post.*
 import kotlinx.android.synthetic.main.toolbar.*
@@ -21,13 +24,18 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
+    lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        println("ok")
+
+        // cek login
+        sharedPreferences = getSharedPreferences("DATA_LOGIN", Context.MODE_PRIVATE)
+        val pengguna_id = sharedPreferences.getString("pengguna_id", "").toString()
+        cekLogin(pengguna_id, this)
+
         getPosts()
-        getUsernamePengguna(1)
 
         action_bar.setText("Beranda")
 
@@ -41,9 +49,20 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        right_icon.setOnClickListener {
+            logout()
+        }
+
 
     }
-    
+
+    private fun logout() {
+        val editor : SharedPreferences.Editor = sharedPreferences.edit()
+        editor.clear()
+        editor.apply()
+        goBackHome(this)
+    }
+
     private fun getPosts() {
         PostNetworkConfig().getService().getPost()
             .enqueue(object : Callback<PostResponse> {
@@ -63,24 +82,6 @@ class MainActivity : AppCompatActivity() {
             })
     }
 
-    fun getUsernamePengguna(pengguna_id : Int) {
-        PenggunaNetworkConfig().getService().getPenggunaID(pengguna_id)
-            .enqueue(object : Callback<PenggunaResponse> {
-                override fun onResponse(
-                    call: Call<PenggunaResponse>?,
-                    response: Response<PenggunaResponse>?
-                ) {
-                    //val data = response?.body()?.data as ArrayList<DataPengguna>
-                    //tv_pengguna_username.setText(response?.body()?.message)
-
-                }
-
-                override fun onFailure(call: Call<PenggunaResponse>?, t: Throwable?) {
-                    Toast.makeText(this@MainActivity, "Reponse Gagal : ${t}", Toast.LENGTH_LONG).show()
-                }
-
-            })
-    }
 
 
 }

@@ -6,24 +6,32 @@
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/drawable-v24/gradient_bg.xml" value="0.2755208333333333" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/drawable-v24/ic_location.xml" value="0.15" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/drawable-v24/wave.xml" value="0.15" />
+        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/drawable/btn_login.xml" value="0.2755208333333333" />
+        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/drawable/btn_login_2.xml" value="0.2755208333333333" />
+        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/drawable/btn_register.xml" value="0.2755208333333333" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/drawable/cv_item_post.xml" value="0.15" />
+        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/drawable/et_login.xml" value="0.2755208333333333" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/drawable/et_post.xml" value="1.0285714285714285" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/drawable/ic_add.xml" value="0.2755208333333333" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/drawable/ic_back.xml" value="0.14947916666666666" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/drawable/ic_insert_comment.xml" value="0.15" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/drawable/iv_rounded_10.xml" value="0.15" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/drawable/line_hr.xml" value="0.15" />
+        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/drawable/login_body.xml" value="0.14635416666666667" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/drawable/post_body.xml" value="0.2755208333333333" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/font/poppins.xml" value="0.28958333333333336" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/activity_detail_post.xml" value="0.4" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/activity_insert_pengguna.xml" value="0.2713541666666667" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/activity_insert_post.xml" value="0.3853073463268366" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/activity_insert_user.xml" value="0.259375" />
-        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/activity_main.xml" value="0.3713872832369942" />
+        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/activity_main.xml" value="0.136" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/activity_pengguna_main.xml" value="0.259375" />
+        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/activity_register.xml" value="0.259375" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.264" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/activity_update_post.xml" value="0.264" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/activity_update_user.xml" value="0.259375" />
+        <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/activity_welcome.xml" value="0.536" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/item_card_post.xml" value="0.2" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/item_card_user.xml" value="0.259375" />
         <entry key="..\:/Workspace/AndroidStudio/BansApp/app/src/main/res/layout/post_body.xml" value="0.259375" />
