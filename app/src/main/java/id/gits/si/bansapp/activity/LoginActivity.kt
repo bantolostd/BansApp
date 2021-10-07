@@ -1,12 +1,16 @@
 package id.gits.si.bansapp.activity
 
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import id.gits.si.bansapp.R
 import id.gits.si.bansapp.model.Data
 import id.gits.si.bansapp.model.LoginPenggunaResponse
@@ -42,6 +46,18 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
+
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.w(TAG, "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
+            // Get FCM token
+            val token = task.result
+            token?.let { Log.d(TAG, it) }
+            //Toast.makeText(baseContext, "Token saat ini: $token", Toast.LENGTH_LONG).show()
+            //Log.d(TAG, "Token saat ini: $token")
+        })
     }
 
     fun loginPengguna() {

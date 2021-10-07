@@ -14,6 +14,7 @@ import id.gits.si.bansapp.model.DataPengguna
 import id.gits.si.bansapp.model.PenggunaResponse
 import id.gits.si.bansapp.rest.PenggunaNetworkConfig
 import id.gits.si.bansapp.support.cekLogin
+import id.gits.si.bansapp.support.goBackHome
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.btn_add
 import kotlinx.android.synthetic.main.activity_pengguna_main.*
@@ -40,6 +41,7 @@ class PenggunaMainActivity : AppCompatActivity() {
         action_bar.setText("Daftar Pengguna")
         left_icon.setImageDrawable(getResources().getDrawable(R.drawable.ic_article))
         btn_add.setImageDrawable(getResources().getDrawable(R.drawable.ic_person_add))
+        right_icon.setImageDrawable(getResources().getDrawable(R.drawable.ic_logout))
 //        Glide.with(this)
 //            .load(R.drawable.ic_article)
 //            .into(left_icon)
@@ -54,7 +56,18 @@ class PenggunaMainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        right_icon.setOnClickListener {
+            logout()
+        }
 
+
+    }
+
+    private fun logout() {
+        val editor : SharedPreferences.Editor = sharedPreferences.edit()
+        editor.clear()
+        editor.apply()
+        goBackHome(this)
     }
     
     private fun getPengguna() {

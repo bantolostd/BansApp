@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "195272993040",
+    "project_id": "ban-sapp",
+    "storage_bucket": "ban-sapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195272993040:android:4df85746864ff709b6dd95",
+        "android_client_info": {
+          "package_name": "id.gits.si.bansapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195272993040-7f7nkob52d5tlfp0hm2orqfooi487ua3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDv0T9116IDotFvLA9xMTYhonp2SIfHUCY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195272993040-7f7nkob52d5tlfp0hm2orqfooi487ua3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

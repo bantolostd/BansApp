@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.InsertPostActivity">
+    tools:context=".activity.InsertPenggunaActivity">
     <include layout="@layout/toolbar_detail"></include>
 
 
@@ -15,7 +15,7 @@
         android:layout_margin="16dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_post_title"
+            android:id="@+id/et_pengguna_nama"
             style="@style/TextInputPost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_post_body"
+            android:id="@+id/et_pengguna_email"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
             android:hint="E-Mail"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_post_title" />
+            app:layout_constraintTop_toBottomOf="@+id/et_pengguna_nama" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_pengguna_username"
@@ -54,7 +54,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_post_body" />
+            app:layout_constraintTop_toBottomOf="@+id/et_pengguna_email" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_pengguna_password"

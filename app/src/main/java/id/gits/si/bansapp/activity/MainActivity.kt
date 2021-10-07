@@ -50,7 +50,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         right_icon.setOnClickListener {
-            logout()
+//            logout()
+            val intent = Intent(this@MainActivity, PushNotificationActivity::class.java)
+            startActivity(intent)
         }
 
 

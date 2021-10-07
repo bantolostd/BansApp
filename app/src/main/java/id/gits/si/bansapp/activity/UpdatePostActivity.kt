@@ -29,7 +29,7 @@ import kotlinx.android.synthetic.main.activity_update_post.*
 import kotlinx.android.synthetic.main.activity_update_post.btn_image_upload
 import kotlinx.android.synthetic.main.activity_update_post.btn_insert_image
 import kotlinx.android.synthetic.main.activity_update_post.et_post_body
-import kotlinx.android.synthetic.main.activity_update_post.et_post_title
+import kotlinx.android.synthetic.main.activity_update_post.et_pengguna_nama
 import kotlinx.android.synthetic.main.activity_update_post.iv_post_image_preview
 import kotlinx.android.synthetic.main.toolbar.*
 import kotlinx.android.synthetic.main.toolbar.action_bar
@@ -96,7 +96,7 @@ class UpdatePostActivity : AppCompatActivity() {
             ) {
                 if (response!!.isSuccessful){
                     val data = response.body()!!
-                    et_post_title.setText(data.postTitle)
+                    et_pengguna_nama.setText(data.postTitle)
                     et_post_body.setText(data.postBody)
                     temp_post_image = data.postImage.toString()
                     val URL_FOTO = "http://192.168.100.125/gits_api/images/"
@@ -206,7 +206,7 @@ class UpdatePostActivity : AppCompatActivity() {
 
     fun updatePost(post_id : String, post_image : String) {
         PostNetworkConfig().getService().updatePost(
-            et_post_title.text.toString().trim(),
+            et_pengguna_nama.text.toString().trim(),
             et_post_body.text.toString().trim(),
             post_image,
             post_id

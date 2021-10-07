@@ -15,43 +15,45 @@
         android:layout_margin="16dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_post_title"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/et_notification_title"
+            style="@style/TextInputPost"
             android:background="@drawable/et_post"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
-            android:hint="Judul post"
+            android:hint="Title"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_post_body"
+            android:id="@+id/et_notification_body"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@drawable/et_post"
             android:fontFamily="@font/poppins"
             android:gravity="top"
-            android:hint="Apa yang kamu pikirkan?"
+            android:hint="Message"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_post_title" />
+            app:layout_constraintTop_toBottomOf="@+id/et_notification_title" />
 
-        <Button
-            android:id="@+id/btn_insert_image"
-            android:layout_width="0dp"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_notification_token"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:backgroundTint="@color/violet"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Tambahkan data!"
+            android:background="@drawable/et_post"
+            android:fontFamily="@font/poppins"
+            android:gravity="top"
+            android:hint="Token"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_image_upload" />
+            app:layout_constraintTop_toBottomOf="@+id/et_notification_body" />
 
         <Button
             android:id="@+id/btn_insert"
@@ -63,30 +65,8 @@
             android:text="Tambahkan data!"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_image_upload" />
+            app:layout_constraintTop_toBottomOf="@+id/et_notification_token" />
 
-        <Button
-            android:id="@+id/btn_image_upload"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:clickable="true"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="PILIH GAMBAR"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_post_body" />
-
-        <ImageView
-            android:id="@+id/iv_post_image_preview"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_insert_image"
-            tools:srcCompat="@tools:sample/avatars" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

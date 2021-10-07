@@ -22,7 +22,6 @@ import id.gits.si.bansapp.rest.UploadImageNetworkConfig
 import kotlinx.android.synthetic.main.activity_insert_post.*
 import kotlinx.android.synthetic.main.activity_insert_post.btn_insert_image
 import kotlinx.android.synthetic.main.activity_insert_post.et_post_body
-import kotlinx.android.synthetic.main.activity_insert_post.et_post_title
 import kotlinx.android.synthetic.main.toolbar.*
 import kotlinx.android.synthetic.main.toolbar_detail.*
 import kotlinx.android.synthetic.main.toolbar_detail.action_bar
