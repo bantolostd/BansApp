@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.gits.si.bansapp.R
 import id.gits.si.bansapp.adapter.PostAPIAdapter
-import id.gits.si.bansapp.model.Data
 import id.gits.si.bansapp.model.DataItems
 import id.gits.si.bansapp.model.PostResponse
 import id.gits.si.bansapp.rest.PostNetworkConfig
@@ -22,6 +21,7 @@ import kotlinx.android.synthetic.main.toolbar.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import android.provider.Settings
 
 class MainActivity : AppCompatActivity() {
     lateinit var sharedPreferences: SharedPreferences
@@ -39,6 +39,8 @@ class MainActivity : AppCompatActivity() {
 
         action_bar.setText("Beranda")
 
+        val deviceID: String = Settings.Secure.getString(contentResolver, Settings.Secure.ANDROID_ID)
+
         left_icon.setOnClickListener {
             val intent = Intent(this@MainActivity, PenggunaMainActivity::class.java)
             startActivity(intent)
@@ -51,9 +53,12 @@ class MainActivity : AppCompatActivity() {
 
         right_icon.setOnClickListener {
 //            logout()
-            val intent = Intent(this@MainActivity, PushNotificationActivity::class.java)
-            startActivity(intent)
+            /*val intent = Intent(this@MainActivity, PushNotificationActivity::class.java)
+            startActivity(intent)*/
+            Toast.makeText(this@MainActivity, "Device ID : $deviceID", Toast.LENGTH_LONG).show()
         }
+
+
 
 
     }

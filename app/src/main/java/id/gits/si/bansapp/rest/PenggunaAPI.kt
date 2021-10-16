@@ -43,5 +43,18 @@ interface PenggunaAPI {
         @Field("pengguna_password") pengguna_password : String
     ): Call<LoginPenggunaResponse>
 
+    @FormUrlEncoded
+    @POST("?function=update_pengguna_hardware")
+    fun updatePenggunaHardware(
+        @Field("pengguna_id") pengguna_id: String,
+        @Field("pengguna_hardware_id") pengguna_hardware_id: String
+    ): Call<LoginPenggunaResponse>
+
+    @FormUrlEncoded
+    @POST("?function=login_hardware")
+    fun loginByDevice(
+        @Field("pengguna_hardware_id") pengguna_hardware_id: String,
+    ): Call<LoginPenggunaResponse>
+
 
 }

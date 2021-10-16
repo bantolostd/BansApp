@@ -7,6 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import com.google.gson.GsonBuilder
 
 import com.google.gson.Gson
+import java.util.concurrent.TimeUnit
 
 class UploadImageNetworkConfig {
     val BASE_URL = "http://192.168.100.125/gits_api/upload_image_api.php/"

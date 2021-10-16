@@ -32,11 +32,9 @@
         <activity
             android:name=".activity.PushNotificationActivity"
             android:exported="true" />
-        <!--
         <activity
             android:name=".activity.WelcomeActivity"
             android:exported="true" />
-        -->
         <activity
             android:name=".activity.LoginActivity"
             android:exported="true" />
@@ -60,8 +58,9 @@
             android:name=".activity.InsertPostActivity"
             android:exported="true" />
         <activity
-            android:name=".activity.WelcomeActivity"
-            android:exported="true">
+            android:name=".activity.SplashScreenActivity"
+            android:exported="true"
+            android:theme="@style/Theme.BansApp.WhiteStatusBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -5,8 +5,11 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View.inflate
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.res.ComplexColorCompat.inflate
+import androidx.core.graphics.drawable.DrawableCompat.inflate
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.gits.si.bansapp.R
 import id.gits.si.bansapp.adapter.PenggunaAPIAdapter
@@ -23,6 +26,7 @@ import kotlinx.android.synthetic.main.toolbar.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.zip.Inflater
 
 class PenggunaMainActivity : AppCompatActivity() {
     lateinit var sharedPreferences: SharedPreferences
