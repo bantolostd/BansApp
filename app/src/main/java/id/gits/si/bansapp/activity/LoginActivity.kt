@@ -41,7 +41,7 @@ class LoginActivity : AppCompatActivity() {
         sharedPreferences = getSharedPreferences("DATA_LOGIN", Context.MODE_PRIVATE)
 
         deviceId = Settings.Secure.getString(contentResolver, Settings.Secure.ANDROID_ID)
-        // Init Biometric
+        // Biometric
         executor = ContextCompat.getMainExecutor(this)
         biometricPrompt = BiometricPrompt(this,executor, object:BiometricPrompt.AuthenticationCallback(){
             override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
@@ -50,7 +50,7 @@ class LoginActivity : AppCompatActivity() {
             }
             override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
                 super.onAuthenticationSucceeded(result)
-                // Jika auth berhasil/sukses, maka cek apakah fingerprint/device id tersebut sudah terdaftar dalam database atau belum
+                // cek device id ada di database atau belum
                 loginByBiometric(deviceId)
             }
             override fun onAuthenticationFailed() {
@@ -63,10 +63,8 @@ class LoginActivity : AppCompatActivity() {
         promptInfo = BiometricPrompt.PromptInfo.Builder()
             .setTitle("Masuk Ban's App dengan biometric")
             .setSubtitle("Masuk dengan sidik jari Anda")
-            .setNegativeButtonText("Gunakan password akun")
+            .setNegativeButtonText("Batal")
             .build()
-
-
 
         btn_submit.setText("MASUK")
 
