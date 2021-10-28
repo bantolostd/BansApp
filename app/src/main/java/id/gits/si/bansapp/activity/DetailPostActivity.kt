@@ -9,7 +9,7 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import id.gits.si.bansapp.R
 import id.gits.si.bansapp.model.DetailPostResponse
-import id.gits.si.bansapp.rest.PostNetworkConfig
+import id.gits.si.bansapp.rest.NetworkConfig
 import id.gits.si.bansapp.support.cekLogin
 import id.gits.si.bansapp.support.konversiTanggal
 import id.gits.si.bansapp.support.lightStatusBar
@@ -52,7 +52,7 @@ class DetailPostActivity : AppCompatActivity() {
     }
 
     fun getDetailPost(post_id : String) {
-        PostNetworkConfig().getService().getPostID(
+        NetworkConfig().getPostService().getPostID(
             post_id.toInt()
         ).enqueue(object: Callback<DetailPostResponse> {
             override fun onResponse(

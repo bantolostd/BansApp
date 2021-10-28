@@ -17,8 +17,6 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import id.gits.si.bansapp.R
 import id.gits.si.bansapp.model.PostResponse
-import id.gits.si.bansapp.rest.PostNetworkConfig
-import id.gits.si.bansapp.rest.UploadImageNetworkConfig
 import kotlinx.android.synthetic.main.activity_insert_post.*
 import kotlinx.android.synthetic.main.activity_insert_post.btn_insert_image
 import kotlinx.android.synthetic.main.activity_insert_post.et_post_body
@@ -33,6 +31,7 @@ import java.time.LocalDateTime
 import okhttp3.MultipartBody.Part.Companion.createFormData
 import java.io.File
 import id.gits.si.bansapp.model.UploadImageResponse
+import id.gits.si.bansapp.rest.NetworkConfig
 import id.gits.si.bansapp.support.cekLogin
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
@@ -128,7 +127,7 @@ class InsertPostActivity : AppCompatActivity() {
         val mFile = RequestBody.create("multipart".toMediaTypeOrNull(), file) //membungkus file ke dalam request body
         val body: MultipartBody.Part = createFormData("file_gambar", file.getName(), mFile)
 
-        UploadImageNetworkConfig().getService().uploadImage(
+        NetworkConfig().getUploadImageService().uploadImage(
             body
         ).enqueue(object: Callback<UploadImageResponse> {
             @RequiresApi(Build.VERSION_CODES.O)
@@ -157,7 +156,7 @@ class InsertPostActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun insertPost(post_image : String = "default.jpg") {
-        PostNetworkConfig().getService().insertPost(
+        NetworkConfig().getPostService().insertPost(
             et_post_title.text.toString().trim(),
             et_post_body.text.toString().trim(),
             post_image,getWaktuSekarang().toString(),"1"

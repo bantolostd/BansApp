@@ -7,16 +7,13 @@ import androidx.biometric.BiometricPrompt
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
-import android.view.Gravity
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import id.gits.si.bansapp.R
 import id.gits.si.bansapp.model.Data
 import id.gits.si.bansapp.model.LoginPenggunaResponse
-import id.gits.si.bansapp.model.PostResponse
-import id.gits.si.bansapp.rest.PenggunaNetworkConfig
-import id.gits.si.bansapp.rest.PostNetworkConfig
+import id.gits.si.bansapp.rest.NetworkConfig
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.btnBack
 import kotlinx.android.synthetic.main.activity_login.btn_submit
@@ -88,7 +85,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun updatePenggunaHardware(pengguna_id : String, pengguna_hardware_id : String) {
-        PenggunaNetworkConfig().getService().updatePenggunaHardware(
+        NetworkConfig().getPenggunaService().updatePenggunaHardware(
             pengguna_id,
             pengguna_hardware_id
         ).enqueue(object: Callback<LoginPenggunaResponse> {
@@ -114,7 +111,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun loginPengguna() {
-        PenggunaNetworkConfig().getService().loginPengguna(
+        NetworkConfig().getPenggunaService().loginPengguna(
             et_login_username.text.toString(),
             et_login_password.text.toString()
         ).enqueue(object: Callback<LoginPenggunaResponse> {
@@ -150,7 +147,7 @@ class LoginActivity : AppCompatActivity() {
 
     // Login menggunakan fingerprint/biometric
     private fun loginByBiometric(pengguna_hardware_id: String) {
-        PenggunaNetworkConfig().getService().loginByDevice(
+        NetworkConfig().getPenggunaService().loginByDevice(
             pengguna_hardware_id
         ).enqueue(object: Callback<LoginPenggunaResponse> {
             override fun onResponse(

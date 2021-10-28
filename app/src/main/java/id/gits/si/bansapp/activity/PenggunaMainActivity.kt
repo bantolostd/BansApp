@@ -5,17 +5,15 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View.inflate
+import android.os.Handler
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.content.res.ComplexColorCompat.inflate
-import androidx.core.graphics.drawable.DrawableCompat.inflate
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.gits.si.bansapp.R
 import id.gits.si.bansapp.adapter.PenggunaAPIAdapter
 import id.gits.si.bansapp.model.DataPengguna
 import id.gits.si.bansapp.model.PenggunaResponse
-import id.gits.si.bansapp.rest.PenggunaNetworkConfig
+import id.gits.si.bansapp.rest.NetworkConfig
 import id.gits.si.bansapp.support.cekLogin
 import id.gits.si.bansapp.support.goBackHome
 import kotlinx.android.synthetic.main.activity_main.*
@@ -26,7 +24,6 @@ import kotlinx.android.synthetic.main.toolbar.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.zip.Inflater
 
 class PenggunaMainActivity : AppCompatActivity() {
     lateinit var sharedPreferences: SharedPreferences
@@ -71,11 +68,14 @@ class PenggunaMainActivity : AppCompatActivity() {
         val editor : SharedPreferences.Editor = sharedPreferences.edit()
         editor.clear()
         editor.apply()
-        goBackHome(this)
+        Handler().postDelayed({
+            startActivity(Intent(this, WelcomeActivity::class.java))
+            finish()
+        }, 1000)
     }
     
     private fun getPengguna() {
-        PenggunaNetworkConfig().getService().getPengguna()
+        NetworkConfig().getPenggunaService().getPengguna()
             .enqueue(object : Callback<PenggunaResponse> {
                 override fun onResponse(
                     call: Call<PenggunaResponse>?,

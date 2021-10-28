@@ -20,8 +20,7 @@ import id.gits.si.bansapp.R
 import id.gits.si.bansapp.model.DetailPostResponse
 import id.gits.si.bansapp.model.PostResponse
 import id.gits.si.bansapp.model.UploadImageResponse
-import id.gits.si.bansapp.rest.PostNetworkConfig
-import id.gits.si.bansapp.rest.UploadImageNetworkConfig
+import id.gits.si.bansapp.rest.NetworkConfig
 import id.gits.si.bansapp.support.cekLogin
 import kotlinx.android.synthetic.main.activity_detail_post.*
 import kotlinx.android.synthetic.main.activity_main.*
@@ -87,7 +86,7 @@ class UpdatePostActivity : AppCompatActivity() {
     }
 
     fun getDetailPost(post_id : String) {
-        PostNetworkConfig().getService().getPostID(
+        NetworkConfig().getPostService().getPostID(
             post_id.toInt()
         ).enqueue(object: Callback<DetailPostResponse> {
             override fun onResponse(
@@ -177,7 +176,7 @@ class UpdatePostActivity : AppCompatActivity() {
         val body: MultipartBody.Part =
             MultipartBody.Part.createFormData("file_gambar", file.getName(), mFile)
 
-        UploadImageNetworkConfig().getService().uploadImage(
+        NetworkConfig().getUploadImageService().uploadImage(
             body
         ).enqueue(object: Callback<UploadImageResponse> {
             @RequiresApi(Build.VERSION_CODES.O)
@@ -205,7 +204,7 @@ class UpdatePostActivity : AppCompatActivity() {
     }
 
     fun updatePost(post_id : String, post_image : String) {
-        PostNetworkConfig().getService().updatePost(
+        NetworkConfig().getPostService().updatePost(
             et_pengguna_nama.text.toString().trim(),
             et_post_body.text.toString().trim(),
             post_image,
@@ -234,7 +233,7 @@ class UpdatePostActivity : AppCompatActivity() {
     }
 
     fun deletePost(post_id: String) {
-        PostNetworkConfig().getService().deletePost(
+        NetworkConfig().getPostService().deletePost(
             post_id).enqueue(object: Callback<PostResponse> {
             override fun onResponse(
                 call: Call<PostResponse>?,

@@ -12,7 +12,6 @@ import id.gits.si.bansapp.R
 import id.gits.si.bansapp.adapter.PostAPIAdapter
 import id.gits.si.bansapp.model.DataItems
 import id.gits.si.bansapp.model.PostResponse
-import id.gits.si.bansapp.rest.PostNetworkConfig
 import id.gits.si.bansapp.support.cekLogin
 import id.gits.si.bansapp.support.goBackHome
 import kotlinx.android.synthetic.main.activity_main.*
@@ -22,6 +21,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import android.provider.Settings
+import id.gits.si.bansapp.rest.NetworkConfig
 
 class MainActivity : AppCompatActivity() {
     lateinit var sharedPreferences: SharedPreferences
@@ -53,9 +53,9 @@ class MainActivity : AppCompatActivity() {
 
         right_icon.setOnClickListener {
 //            logout()
-            /*val intent = Intent(this@MainActivity, PushNotificationActivity::class.java)
-            startActivity(intent)*/
-            Toast.makeText(this@MainActivity, "Device ID : $deviceID", Toast.LENGTH_LONG).show()
+            val intent = Intent(this@MainActivity, PushNotificationActivity::class.java)
+            startActivity(intent)
+            //Toast.makeText(this@MainActivity, "Device ID : $deviceID", Toast.LENGTH_LONG).show()
         }
 
 
@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getPosts() {
-        PostNetworkConfig().getService().getPost()
+        NetworkConfig().getPostService().getPost()
             .enqueue(object : Callback<PostResponse> {
                 override fun onResponse(
                     call: Call<PostResponse>?,

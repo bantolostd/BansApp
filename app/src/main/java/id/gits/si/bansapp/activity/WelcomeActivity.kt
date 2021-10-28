@@ -11,6 +11,10 @@ import id.gits.si.bansapp.R
 import id.gits.si.bansapp.support.cekLogin
 import id.gits.si.bansapp.support.cekLoginAwal
 import kotlinx.android.synthetic.main.activity_welcome.*
+import android.content.DialogInterface
+
+
+
 
 class WelcomeActivity : AppCompatActivity() {
     lateinit var sharedPreferences: SharedPreferences
@@ -33,6 +37,13 @@ class WelcomeActivity : AppCompatActivity() {
             val intent = Intent(this@WelcomeActivity, RegisterActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    override fun onBackPressed() {
+        val a = Intent(Intent.ACTION_MAIN)
+        a.addCategory(Intent.CATEGORY_HOME)
+        a.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(a)
     }
 
 }

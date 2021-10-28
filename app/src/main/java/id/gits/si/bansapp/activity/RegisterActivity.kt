@@ -11,7 +11,7 @@ import id.gits.si.bansapp.R
 import id.gits.si.bansapp.model.Data
 import id.gits.si.bansapp.model.LoginPenggunaResponse
 import id.gits.si.bansapp.model.PenggunaResponse
-import id.gits.si.bansapp.rest.PenggunaNetworkConfig
+import id.gits.si.bansapp.rest.NetworkConfig
 import id.gits.si.bansapp.support.goBackHome
 import kotlinx.android.synthetic.main.activity_insert_pengguna.*
 import kotlinx.android.synthetic.main.activity_insert_post.*
@@ -52,7 +52,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun insertPengguna(post_image : String = "user_default.jpg") {
-        PenggunaNetworkConfig().getService().insertPengguna(
+        NetworkConfig().getPenggunaService().insertPengguna(
             et_register_nama.text.toString().trim(),
             et_register_email.text.toString().trim(),
             et_register_username.text.toString().trim(),
@@ -85,7 +85,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     fun loginPengguna() {
-        PenggunaNetworkConfig().getService().loginPengguna(
+        NetworkConfig().getPenggunaService().loginPengguna(
             et_register_username.text.toString(),
             et_register_password.text.toString()
         ).enqueue(object: Callback<LoginPenggunaResponse> {

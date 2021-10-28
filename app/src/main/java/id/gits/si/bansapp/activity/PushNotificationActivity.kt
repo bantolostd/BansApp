@@ -17,8 +17,6 @@ import id.gits.si.bansapp.R
 import id.gits.si.bansapp.model.PushNotificationResponse
 import id.gits.si.bansapp.rest.NetworkConfig
 import id.gits.si.bansapp.support.cekLogin
-import kotlinx.android.synthetic.main.activity_insert_pengguna.*
-import kotlinx.android.synthetic.main.activity_insert_post.*
 import kotlinx.android.synthetic.main.activity_push_notification.*
 import kotlinx.android.synthetic.main.activity_push_notification.btn_insert
 import kotlinx.android.synthetic.main.toolbar.*
@@ -60,6 +58,11 @@ class PushNotificationActivity : AppCompatActivity() {
 
         btnBack.setOnClickListener {
             goBackHome()
+        }
+
+        btn_alarm.setOnClickListener {
+            val intent = Intent(this, AlarmManagerActivity::class.java)
+            startActivity(intent)
         }
 
         et_notification_token.setVisibility(View.GONE)

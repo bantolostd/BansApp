@@ -52,14 +52,6 @@ class PenggunaAPIAdapter(val results : ArrayList<DataPengguna>) : RecyclerView.A
                 Toast.LENGTH_LONG
             ).show()
         }
-        /*holder.cvPengguna.setOnClickListener {
-            *//*val intent = Intent(holder.itemView.context, DetailPostActivity::class.java)
-            intent.putExtra("pengguna_id", data.penggunaId)
-            intent.putExtra("pengguna_nama", data.penggunaNama)
-            intent.putExtra("pengguna_email", data.penggunaEmail)
-            intent.putExtra("pengguna_username", data.penggunaUsername)
-            holder.cvPengguna.context.startActivity(intent)*//*
-        }*/
     }
 
     override fun getItemCount(): Int {

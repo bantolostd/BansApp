@@ -17,7 +17,6 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import id.gits.si.bansapp.R
 import id.gits.si.bansapp.model.PenggunaResponse
-import id.gits.si.bansapp.rest.UploadImageNetworkConfig
 import kotlinx.android.synthetic.main.toolbar.*
 import kotlinx.android.synthetic.main.toolbar_detail.*
 import kotlinx.android.synthetic.main.toolbar_detail.action_bar
@@ -29,7 +28,7 @@ import java.time.LocalDateTime
 import okhttp3.MultipartBody.Part.Companion.createFormData
 import java.io.File
 import id.gits.si.bansapp.model.UploadImageResponse
-import id.gits.si.bansapp.rest.PenggunaNetworkConfig
+import id.gits.si.bansapp.rest.NetworkConfig
 import id.gits.si.bansapp.support.cekLogin
 import kotlinx.android.synthetic.main.activity_insert_pengguna.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -124,7 +123,7 @@ class InsertPenggunaActivity : AppCompatActivity() {
         val mFile = RequestBody.create("multipart".toMediaTypeOrNull(), file) //membungkus file ke dalam request body
         val body: MultipartBody.Part = createFormData("file_gambar", file.getName(), mFile)
 
-        UploadImageNetworkConfig().getService().uploadImage(
+        NetworkConfig().getUploadImageService().uploadImage(
             body
         ).enqueue(object: Callback<UploadImageResponse> {
             @RequiresApi(Build.VERSION_CODES.O)
@@ -153,7 +152,7 @@ class InsertPenggunaActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun insertPengguna(post_image : String = "user_default.jpg") {
-        PenggunaNetworkConfig().getService().insertPengguna(
+        NetworkConfig().getPenggunaService().insertPengguna(
             et_pengguna_nama.text.toString().trim(),
             et_pengguna_email.text.toString().trim(),
             et_pengguna_username.text.toString().trim(),
